@@ -1,6 +1,6 @@
 // Zomato API url wth the user key as a header. this sends the user key as a parameter.
 
-var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&";
+var queryURL = "https://developers.zomato.com/api/v2.1/search?";
 
 $.ajax({
     url: queryURL,
@@ -11,3 +11,7 @@ $.ajax({
 }).then(function (response) {
     console.log(response);
 });
+
+var city = "280";
+
+console.log(queryURL)
