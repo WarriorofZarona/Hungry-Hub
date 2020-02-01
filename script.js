@@ -9,6 +9,27 @@ $.ajax({
     method: "GET"
 }).then(function (response) {
     console.log(response)
+
+    var recipe =
+
+        $.each(response.hits, function (i, result) {
+
+            console.log("Recipe # " + i)
+            console.log("The recipe name is " + result.recipe.label)
+
+            // This should display recipe image, to be used in img src
+            console.log("Image source is " + result.recipe.image)
+
+            // This should display source of recipe, to be anchored by url
+            console.log("Source is " + result.recipe.source + " and url is " + response.hits[0].recipe.url)
+
+            // DIsplays calorie count
+            console.log("Calories are " + Math.round(result.recipe.calories))
+
+            console.log("Number of ingredients: " + result.recipe.ingredients.length)
+
+
+        })
     // Use response.hits[0], using for loop to go through each result
 
     // This should display recipe name
