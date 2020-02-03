@@ -47,3 +47,5 @@ $.ajax({
     // console.log("Number of ingredients: " + response.hits[0].recipe.ingredients.length)
     $("#results0").append($("<p>").addClass("valign-wrapper right").attr("id", "ingredients0").text(result.recipe.ingredients.length + " ingredients"))
 })
+
+// Notes: Need to add ID's for Card Title (recipe0), Image (image0), Link insert (link0), and Card Content (result0)
