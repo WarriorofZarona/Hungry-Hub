@@ -39,8 +39,9 @@ $.ajax({
     // })
     // Create card div
     var createCard = $("<div>").addClass("card small");
-    var createCardImg = $("<div>").addClass("card-image")
-
+    var createCardImg = $("<div>").addClass("card-image");
+    var createCardContent = $("<div>").addClass("card-content");
+    var createCardAction = $("<div>").addClass("card-action");
     // Use response.hits[0], using for loop to go through each result
     var result = response.hits[0]
 
@@ -52,15 +53,19 @@ $.ajax({
     createCardImg.append($("<span>").addClass("card-title").text(result.recipe.label))
 
     createCard.append(createCardImg);
-
-    // This should display source of recipe, to be anchored by url
-    // console.log("Source is " + response.hits[0].recipe.source + " and url is " + response.hits[0].recipe.url)
-    $("#link0").attr("href", result.recipe.url).text(result.recipe.source)
     // DIsplays calorie count
     // console.log("Calories are " + Math.round(response.hits[0].recipe.calories))
-    $("#results0").append($("<p>").addClass("valign-wrapper left").attr("id", "calorie0").text(Math.round(result.recipe.calories) + " calories"))
+
+    createCardContent.append($("<p>").addClass("valign-wrapper left").attr("id", "calorie0").text(Math.round(result.recipe.calories) + " calories"))
     // console.log("Number of ingredients: " + response.hits[0].recipe.ingredients.length)
-    $("#results0").append($("<p>").addClass("valign-wrapper right").attr("id", "ingredients0").text(result.recipe.ingredients.length + " ingredients"))
+    createCardContent.append($("<p>").addClass("valign-wrapper right").attr("id", "ingredients0").text(result.recipe.ingredients.length + " ingredients"))
+
+    createCard.append(createCardContent);
+    // This should display source of recipe, to be anchored by url
+    // console.log("Source is " + response.hits[0].recipe.source + " and url is " + response.hits[0].recipe.url)
+    createCardAction.append($("<a>").attr("href", result.recipe.url).text(result.recipe.source));
+
+    createCard.append(createCardAction);
 
     containerId.append(createCard);
 })
