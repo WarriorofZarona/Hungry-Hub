@@ -3,9 +3,12 @@ var keyWord = "chicken" //location of user input for recipe
 
 var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&q=" + keyWord;
 
-var createContainer = $("<div>").attr("id", "container");
+var createRow = $("<div>").addClass("row");
+var createContainer = $("<div>").addClass("col s12 m3").attr("id", "container");
 
-$("body").append(createContainer);
+$("body").append(createRow);
+
+createRow.append(createContainer);
 
 var containerId = $("#container");
 
