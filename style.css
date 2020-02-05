@@ -77,3 +77,12 @@ h1 {
         background-image: url('image5.jpg');
     }
 }
+
+.hungryHubLogo {
+    font-family: Impact, Charcoal, sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.navbar {
+    padding-left: 20px;
+}
