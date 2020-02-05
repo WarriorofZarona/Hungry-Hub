@@ -95,3 +95,14 @@ h1 {
     color: #ff9800;
     text-align: center;
 }
+
+.col {
+    align-content: center;
+}
+
+li {
+    clear: left;
+}
+
+
+/*card-title change font, add shadow
