@@ -104,5 +104,29 @@ li {
     clear: left;
 }
 
+#container0,
+#container1,
+#container2,
+#container3,
+#container4 {
+    padding-top: 30px;
+}
+
+.card-title {
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.recipes {
+    padding-left: 100px;
+}
+
+.right {
+    float: inline-start;
+}
+
+#topbarsearch {
+    float: right;
+}
+
 
 /*card-title change font, add shadow
