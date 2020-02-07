@@ -39,7 +39,7 @@ $.ajax({
         var createCardContainer = $("<div>").addClass("col s12 l2").attr("id", "card" + i);
         $("#results").append(createCardContainer);
         var containerId = $("#card" + i);
-        var createCard = $("<div>").addClass("card small");
+        var createCard = $("<div>").addClass("card medium");
         var createCardImg = $("<div>").addClass("card-image");
         var createCardContent = $("<div>").addClass("card-content");
         var createCardAction = $("<div>").addClass("card-action");
