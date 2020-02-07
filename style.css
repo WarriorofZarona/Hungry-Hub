@@ -128,8 +128,16 @@ li {
     float: right;
 }
 
-#results0 {
+#results {
     padding-top: 30px;
+}
+
+.valign-wrapper {
+    align-content: center;
+}
+
+.card-action {
+    font-size: 11px;
 }
 
 
