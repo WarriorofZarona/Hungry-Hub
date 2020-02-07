@@ -1,7 +1,7 @@
 //Recipe Search, sample chicken
 var keyWord = "chicken" //location of user input for recipe
 
-var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&q=" + keyWord;
+var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&to=12&q=" + keyWord;
 
 
 
@@ -35,8 +35,8 @@ $.ajax({
     // })
     // Create card div
 
-    for (var i = 0; i < 4; i++) {
-        var createCardContainer = $("<div>").addClass("col s12 m2").attr("id", "card" + i);
+    for (var i = 0; i < response.hits.length; i++) {
+        var createCardContainer = $("<div>").addClass("col s12 l2").attr("id", "card" + i);
         $("#results").append(createCardContainer);
         var containerId = $("#card" + i);
         var createCard = $("<div>").addClass("card small");
