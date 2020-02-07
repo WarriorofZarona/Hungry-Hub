@@ -1,7 +1,7 @@
 //Recipe Search, sample chicken
 var keyWord = "chicken" //location of user input for recipe
 
-var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&q=" + keyWord;
+var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&to=12&q=" + keyWord;
 
 
 
@@ -10,7 +10,7 @@ $.ajax({
 
     url: queryURL,
     method: "GET"
-}).then(function (response) {
+}).then(function(response) {
     console.log(response)
 
     // $.each(response.hits, function (i, result) {
@@ -35,11 +35,11 @@ $.ajax({
     // })
     // Create card div
 
-    for (var i = 0; i < 4; i++) {
-        var createCardContainer = $("<div>").addClass("col s12 m2").attr("id", "card" + i);
+    for (var i = 0; i < response.hits.length; i++) {
+        var createCardContainer = $("<div>").addClass("col s12 l2").attr("id", "card" + i);
         $("#results").append(createCardContainer);
         var containerId = $("#card" + i);
-        var createCard = $("<div>").addClass("card small");
+        var createCard = $("<div>").addClass("card medium");
         var createCardImg = $("<div>").addClass("card-image");
         var createCardContent = $("<div>").addClass("card-content");
         var createCardAction = $("<div>").addClass("card-action");
@@ -51,8 +51,8 @@ $.ajax({
         // This should display recipe image, to be used in img src
         // console.log("Image source is " + response.hits[0].recipe.image)
         createCardImg.append($("<img>").addClass("responsive-img").attr("src", result.recipe.image))
-        // This should display recipe name
-        // console.log("The recipe name is " + response.hits[0].recipe.label)
+            // This should display recipe name
+            // console.log("The recipe name is " + response.hits[0].recipe.label)
         createCardImg.append($("<span>").addClass("card-title").text(result.recipe.label))
 
         createCard.append(createCardImg);
@@ -60,7 +60,7 @@ $.ajax({
         // console.log("Calories are " + Math.round(response.hits[0].recipe.calories))
 
         createCardContent.append($("<p>").addClass("valign-wrapper").attr("id", "calorie" + i).text(Math.round(result.recipe.calories) + " cal"))
-        // console.log("Number of ingredients: " + response.hits[0].recipe.ingredients.length)
+            // console.log("Number of ingredients: " + response.hits[0].recipe.ingredients.length)
         createCardContent.append($("<p>").addClass("valign-wrapper ingredients").attr("id", "ingredients" + i).text(result.recipe.ingredients.length + " ingredients"))
 
         createCard.append(createCardContent);
