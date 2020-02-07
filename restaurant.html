@@ -19,28 +19,46 @@
 
 <body>
 
-    <div class="row">
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="image1.jpg">
-                    <span class="card-title">Recipe Title</span>
-                </div>
-                <div class="card-content">
-                    <p>Insert relevant parameters from the API here.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Insert link to the recipe here.</a>
+    <nav class="orange">
+        <div class="nav-wrapper navbar">
+            <a href="index.html" class="brand-logo hungryHubLogo">Hungry Hub</a>
+            <div class="row">
+                <div id="topbarsearch">
+                    <div class="input-field col s12 s4">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete">
+                    </div>
                 </div>
             </div>
         </div>
+    </nav>
 
 
-    </div>
-    <!--JavaScript at end of body for optimized loading-->
-    <!--<script type="text/javascript " src="js/materialize.min.js "></script>-->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="restaurant.js"></script>
+    <div class="row" id="results">
+
+        <!--Cards will be appended here-->
+
+
+        <!--JavaScript at end of body for optimized loading-->
+        <!--<script type="text/javascript " src="js/materialize.min.js "></script>-->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="restaurant.js"></script>
+
+
+
+
+        <div class="footer">
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active orange"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+                <li class="waves-effect"><a href="#!">3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
+
 </body>
 
 </html>
