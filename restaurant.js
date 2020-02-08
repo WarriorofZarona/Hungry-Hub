@@ -51,7 +51,7 @@ $.ajax({
             createCardContent.append($("<p>").addClass("resRating").text("Restaurant Rating: " + resRatingNum + " " + resRatingStr).css('text-align', 'left'))
             var resAddr = results.restaurant.location.address;
             var resPhone = results.restaurant.phone_numbers;
-            createCardContent.append($("<p>").addClass("resInfo").html('Address: ' + resAddr + '<br>' + 'Telephone Number: ' + resPhone))
+            createCardContent.append($("<p>").addClass("resInfo").html(' <i class="material-icons">location_on</i>  ' + resAddr + '<br>' + '<i class="material-icons">phone</i> ' + resPhone))
             createCard.append(createCardContent);
 
             var resLink = results.restaurant.url;
