@@ -316,5 +316,18 @@ p {
     }
 }
 
+.card .card-content {
+    padding: 17px;
+    border-radius: 0 0 2px 2px;
+}
+
+p {
+    font-size: 15px;
+}
+
+.right {
+    padding-right: 10px;
+}
+
 
 /*card-title change font, add shadow
