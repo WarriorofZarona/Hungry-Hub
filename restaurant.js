@@ -1,4 +1,5 @@
-
+var from = 0;
+var to = 20;
 var cityInput = "chicago";
 
 var cityURL = "https://developers.zomato.com/api/v2.1/cities?count=12&q=" + cityInput;
@@ -13,7 +14,7 @@ $.ajax({
 
     console.log(response.location_suggestions[0].id);
     var cityId = response.location_suggestions[0].id
-    var searchURL = "https://developers.zomato.com/api/v2.1/search?count=8&entity_id=" + cityId + "&entity_type=city";
+    var searchURL = "https://developers.zomato.com/api/v2.1/search?start=" + from + "&count=" + to + "&entity_id=" + cityId + "&entity_type=city";
     console.log(searchURL);
 
 
@@ -48,7 +49,7 @@ $.ajax({
 
             var resRatingNum = results.restaurant.user_rating.aggregate_rating;
             var resRatingStr = results.restaurant.user_rating.rating_text;
-            createCardContent.append($("<p>").addClass("resRating").text("Restaurant Rating: " + resRatingNum + " " + resRatingStr).css('text-align', 'left'))
+            createCardContent.append($("<p>").addClass("resRating").html('<i class="material-icons">star</i>' + "Restaurant Rating: " + resRatingNum + " " + resRatingStr).css('text-align', 'left'))
             var resAddr = results.restaurant.location.address;
             var resPhone = results.restaurant.phone_numbers;
             createCardContent.append($("<p>").addClass("resInfo").html(' <i class="material-icons">location_on</i>  ' + resAddr + '<br>' + '<i class="material-icons">phone</i> ' + resPhone))
