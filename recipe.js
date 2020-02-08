@@ -22,19 +22,20 @@ $(document).ready(function () {
             }
         } else if ($(this).attr("data-page") === "prev") {
             console.log($(this).attr("data-page"))
-            if (currentIndex < 2) {
-                currentIndex = currentIndex + 1
-                console.log(page)
-                loadResults(page)
+            console.log(currentIndex);
+            if (currentIndex === 0) {
+                currentIndex = 0
+                console.log(currentIndex)
+                loadResults(currentIndex)
             } else {
-                currentIndex = 0;
-                console.log(page)
-                loadResults(page)
+                currentIndex = currentIndex - 1;
+                console.log(currentIndex)
+                loadResults(currentIndex)
             }
 
         } else {
             console.log($(this).attr("data-page"))
-            currentIndex = $(this).attr("data-page") - 1;
+            currentIndex = parseInt($(this).attr("data-page") - 1);
             console.log(currentIndex);
             loadResults(currentIndex);
 
