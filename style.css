@@ -337,5 +337,7 @@ p {
     text-align: center;
 }
 
-
-/*card-title change font, add shadow
+.ryanLogo {
+    height: 38px;
+    width: 38px;
+}
