@@ -22,14 +22,21 @@
     <nav class="orange">
         <div class="nav-wrapper navbar">
             <a href="index.html" class="brand-logo hungryHubLogo">Hungry Hub</a>
-            <div class="row">
-                <div id="topbarsearch">
-                    <div class="input-field col s12 s4">
-                        <i class="material-icons prefix">search</i>
-                        <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete">
+            <form action="" class="browser-default right">
+                <input id="search-input" placeholder="Search" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
+                <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                <i class="material-icons search-close-icon">cancel</i>
+                <div class="search-popup">
+                    <div class="search-content">
+                        <label class="search-heading">Advanced Search</label>
+                        <ul class="popup-list">
+                            <li class=""><a class="grey-text" href="#">Vegetarian</a></li>
+                            <li class=""><a class="grey-text" href="#">Gluten-free</a></li>
+                            <li class=""><a class="grey-text" href="#">Vegan</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </nav>
 
@@ -48,8 +55,12 @@
 
     <div class="footer">
         <ul class="pagination">
+<<<<<<< HEAD
             <li class="disabled navigate" data-page="prev"><a href="#!"><i class="material-icons">chevron_left</i></a>
             </li>
+=======
+            <li class="disabled navigate" data-page="prev"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+>>>>>>> a7d4439a855cd7db1748f6179be13a659c709e69
             <li class="active orange navigate" data-page="1"><a href="#!">1</a></li>
             <li class="waves-effect navigate" data-page="2"><a href="#!">2</a></li>
             <li class="waves-effect navigate" data-page="3"><a href="#!">3</a></li>
