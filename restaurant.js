@@ -1,5 +1,5 @@
 
-var cityInput = "chicago";
+var cityInput = "rahway";
 
 var cityURL = "https://developers.zomato.com/api/v2.1/cities?count=12&q=" + cityInput;
 
@@ -51,7 +51,7 @@ $.ajax({
             createCardContent.append($("<p>").addClass("resRating").text("Restaurant Rating: " + resRatingNum + " " + resRatingStr).css('text-align', 'left'))
             var resAddr = results.restaurant.location.address;
             var resPhone = results.restaurant.phone_numbers;
-            createCardContent.append($("<p>").addClass("resInfo").html('Address: ' + resAddr + '<br>' + 'Telephone Number: ' + resPhone))
+            createCardContent.append($("<p>").addClass("resInfo").html('Address: ' + resAddr + '<br>' + '<i class="material-icons">phone</i> ' + resPhone))
             createCard.append(createCardContent);
 
             var resLink = results.restaurant.url;
