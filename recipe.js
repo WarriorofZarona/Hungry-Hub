@@ -2,51 +2,79 @@
 
 $(document).ready(function () {
 
-    var from = 0;
-    var to = 11;
+
+    var currentIndex = 0;
     var keyWord = "chicken" //location of user input for recipe
 
-    loadResults()
+    loadResults(0)
 
-    // $("li").click(function () {
+    $("li").click(function () {
 
-    //     if ($(this).attr("data-page") === "prev") {
-    //         console.log($(this).attr("data-page"))
-    //         if (page > 3) {
-    //             page = page - 1
-    //             console.log(page)
-    //             loadResults(page)
-    //         } else {
-    //             page = 1;
-    //             console.log(page)
-    //             loadResults(page)
-    //         }
-    //     } else if ($(this).attr("data-page") === "prev") {
-    //         console.log($(this).attr("data-page"))
-    //         if (page < 3) {
-    //             page = page + 1
-    //             console.log(page)
-    //             loadResults(page)
-    //         } else {
-    //             page = 5;
-    //             console.log(page)
-    //             loadResults(page)
-    //         }
+        if ($(this).attr("data-page") === "next") {
+            console.log($(this).attr("data-page"))
+            if (currentIndex === 4) {
+                currentIndex = 4;
+                loadResults(currentIndex);
+            } else {
+                currentIndex = currentIndex + 1;
+                console.log(currentIndex);
+                loadResults(currentIndex);
+            }
+        } else if ($(this).attr("data-page") === "prev") {
+            console.log($(this).attr("data-page"))
+            if (currentIndex < 2) {
+                currentIndex = currentIndex + 1
+                console.log(page)
+                loadResults(page)
+            } else {
+                currentIndex = 0;
+                console.log(page)
+                loadResults(page)
+            }
 
-    //     } else {
-    //         console.log($(this).attr("data-page"))
-    //         page = $(this).attr("data-page")
-    //         console.log(page)
-    //         loadResults(page)
+        } else {
+            console.log($(this).attr("data-page"))
+            currentIndex = $(this).attr("data-page") - 1;
+            console.log(currentIndex);
+            loadResults(currentIndex);
 
-    //     }
-    // })
+        }
+    })
 
 
-    function loadResults() {
+    function loadResults(index) {
         $("#results").empty();
 
-        var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&from=" + from + "&to=" + to + "&q=" + keyWord;
+        var pages = [{
+            page: 1,
+            from: 0,
+            to: 12
+        },
+        {
+            page: 2,
+            from: 13,
+            to: 25
+        },
+        {
+            page: 3,
+            from: 26,
+            to: 38
+        },
+        {
+            page: 4,
+            from: 39,
+            to: 52
+        },
+        {
+            page: 5,
+            from: 53,
+            to: 65
+        }];
+
+        console.log(pages)
+
+
+        var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&from=" + pages[index].from + "&to=" + pages[index].to + "&q=" + keyWord;
         $.ajax({
 
             url: queryURL,
