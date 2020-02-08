@@ -329,5 +329,9 @@ p {
     padding-right: 10px;
 }
 
+.material-icons {
+    size: small;
+}
+
 
 /*card-title change font, add shadow
