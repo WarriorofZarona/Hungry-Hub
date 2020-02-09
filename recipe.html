@@ -70,6 +70,7 @@
 
 
     <div class="row" id="results">
+        <h2 class="loadingText">Choose your ingredient!</h2>
         <div class="loadingPage">
             <img class="ryan" src="ryanEating.gif">
         </div>
@@ -96,6 +97,30 @@
                         class="material-icons">chevron_right</i></a></li>
         </ul>
     </div>
+
+
+
+
+    <div onload="myFunction()" style="margin:0;" id="loader"></div>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h2>Working on it!</h2>
+        <img src="ryanLoading.gif">
+
+    </div>
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+    </script>
 
 </body>
 
