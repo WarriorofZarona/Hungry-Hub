@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
     })
 
-    $("li").click(function () {
+    $(".navigate").click(function () {
 
         if ($(this).attr("data-page") === "next") {
             console.log($(this).attr("data-page"))
@@ -40,23 +40,18 @@ $(document).ready(function () {
             }
 
         } else {
-
-            for (var i = 0; i < 5; i++) {
-
-                if ($(this)) {
-                    console.log($(this).attr("data-page"))
-                    currentIndex = parseInt($(this).attr("data-page") - 1);
-                    console.log(currentIndex);
-                    loadResults(currentIndex);
-                    $(this).toggleClass("active orange");
-                } else {
-                    if (!$(this)) {
-                        $(this).toggleClass("waves-effect");
-                        $(this).toggleClass("active-orange");
-                    }
-                }
+            if ($(this)) {
+                console.log($(this).attr("data-page"))
+                currentIndex = parseInt($(this).attr("data-page") - 1);
+                console.log(currentIndex);
+                loadResults(currentIndex);
+                $(this).toggleClass("active orange");
+            } else {
+                $(this).toggleClass("waves-effect");
+                $(this).removeClass("active-orange");
 
             }
+
         }
 
 
