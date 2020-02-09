@@ -71,29 +71,56 @@
 
 
     <div class="row" id="results">
-
-        <!--Cards will be appended here-->
-
-
-        <!--JavaScript at end of body for optimized loading-->
-        <!--<script type="text/javascript " src="js/materialize.min.js "></script>-->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="restaurant.js"></script>
-
-
-
-
-        <div class="footer">
-            <ul class="pagination">
-                <li class="disabled navigate" data-page="prev"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                <li class="active orange navigate" data-page="1"><a href="#!">1</a></li>
-                <li class="waves-effect navigate" data-page="2"><a href="#!">2</a></li>
-                <li class="waves-effect navigate" data-page="3"><a href="#!">3</a></li>
-                <li class="waves-effect navigate" data-page="4"><a href="#!">4</a></li>
-                <li class="waves-effect navigate" data-page="5"><a href="#!">5</a></li>
-                <li class="waves-effect navigate" data-page="next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
+        <h2 class="loadingText">Choose your cuisine!</h2>
+        <div class="loadingPage">
+            <img class="ryan" src="ryanEating.gif">
         </div>
+        <!--Cards will be appended here-->
+    </div>
+
+    <!--Cards will be appended here-->
+
+
+    <!--JavaScript at end of body for optimized loading-->
+    <!--<script type="text/javascript " src="js/materialize.min.js "></script>-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="restaurant.js"></script>
+
+
+
+
+    <div class="footer">
+        <ul class="pagination">
+            <li class="disabled navigate" data-page="prev"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active orange navigate" data-page="1"><a href="#!">1</a></li>
+            <li class="waves-effect navigate" data-page="2"><a href="#!">2</a></li>
+            <li class="waves-effect navigate" data-page="3"><a href="#!">3</a></li>
+            <li class="waves-effect navigate" data-page="4"><a href="#!">4</a></li>
+            <li class="waves-effect navigate" data-page="5"><a href="#!">5</a></li>
+            <li class="waves-effect navigate" data-page="next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+
+    <div onload="myFunction()" style="margin:0;" id="loader"></div>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h2>Working on it!</h2>
+        <img src="ryanLoading.gif">
+
+    </div>
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+    </script>
 
 </body>
 
