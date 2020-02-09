@@ -2,7 +2,6 @@
 
 $(document).ready(function () {
 
-
     var currentIndex = 0;
 
     $("#search-input").on("keypress", function (event) {
@@ -19,13 +18,25 @@ $(document).ready(function () {
             console.log($(this).attr("data-page"))
             if (currentIndex === 4) {
                 currentIndex = 4;
-                $(this).toggleClass("disabled");
                 loadResults(currentIndex);
+                $(this).addClass("disabled");
+                $(this).removeClass("waves-effect");
             } else {
                 currentIndex = currentIndex + 1;
                 console.log(currentIndex);
                 loadResults(currentIndex);
+
+                if ($(this).hasClass("disabled")) {
+
+                    $(this).removeClass("disabled");
+                    $(this).addClass("waves-effect");
+                }
+            } if (((currentIndex) + 1) === $(".navigate").attr("data-page")) {
+
+                $(".navigate").addClass("active orange");
+
             }
+
         } else if ($(this).attr("data-page") === "prev") {
             console.log($(this).attr("data-page"))
             console.log(currentIndex);
@@ -33,28 +44,45 @@ $(document).ready(function () {
                 currentIndex = 0
                 console.log(currentIndex)
                 loadResults(currentIndex)
+                $(this).addClass("disabled");
+                $(this).removeClass("waves-effect");
             } else {
                 currentIndex = currentIndex - 1;
                 console.log(currentIndex)
                 loadResults(currentIndex)
+                if ($(this).hasClass("disabled")) {
+
+                    $(this).removeClass("disabled");
+                    $(this).addClass("waves-effect");
+                }
+                if ($('.navigate').hasClass('active orange')) {
+                    $('.navigate').removeClass('active orange');
+                }
+
+                if (((currentIndex) + 1) === $(".navigate").attr("data-page")) {
+
+                    $(".navigate").addClass("active orange");
+
+                }
+
+
+
             }
 
         } else {
-            if ($(this)) {
-                console.log($(this).attr("data-page"))
-                currentIndex = parseInt($(this).attr("data-page") - 1);
-                console.log(currentIndex);
-                loadResults(currentIndex);
-                $(this).toggleClass("active orange");
+
+            console.log($(this).attr("data-page"))
+            currentIndex = parseInt($(this).attr("data-page") - 1);
+            console.log(currentIndex);
+            loadResults(currentIndex);
+
+            if ($('.navigate').hasClass('active orange')) {
+                $('.navigate').removeClass('active orange');
+                $(this).addClass('active orange');
             } else {
-                $(this).toggleClass("waves-effect");
-                $(this).removeClass("active-orange");
-
+                $(this).addClass('active orange');
             }
-
         }
-
-
     })
 })
 
@@ -82,12 +110,12 @@ function loadResults(index) {
     {
         page: 4,
         from: 39,
-        to: 52
+        to: 50
     },
     {
         page: 5,
-        from: 53,
-        to: 65
+        from: 51,
+        to: 64
     }];
 
     console.log(pages)
@@ -106,7 +134,7 @@ function loadResults(index) {
             var createCardContainer = $("<div>").addClass("col s12 l2").attr("id", "card" + i);
             $("#results").append(createCardContainer);
             var containerId = $("#card" + i);
-            var createCard = $("<div>").addClass("card medium");
+            var createCard = $("<div>").addClass("card medium hoverable");
             var createCardImg = $("<div>").addClass("card-image");
             var createCardContent = $("<div>").addClass("card-content");
             var createCardAction = $("<div>").addClass("card-action");
