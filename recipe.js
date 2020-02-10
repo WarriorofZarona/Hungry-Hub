@@ -1,9 +1,12 @@
-//Recipe Search, sample chicken
-
+//Recipe Search
 $(document).ready(function () {
+    // Hides Footer
+    $('.footer').hide();
+
     // Defining starting Index when API starts 
     var currentIndex = 0;
-    // Starts the initial AJAX call when a keyword is typed in, and then presses the enter key
+    // User types in a keyword here, and then presses the enter key, loadResults() does the AJAX call
+    // displays the results through jQuery and Materialize framework cards
     $("#search-input").on("keypress", function (event) {
         if (event.which == 13) {
             event.preventDefault();
@@ -62,7 +65,6 @@ $(document).ready(function () {
             } else {
                 $(".navigate").removeClass("disabled");
             }
-
         }
         function activeNav() {
             for (var i = 0; i < 5; i++) {
@@ -82,6 +84,9 @@ $(document).ready(function () {
     // })
 
     function loadResults(index) {
+
+        //Shows footer
+        $('.footer').show();
         // Clears the results
         $("#results").empty();
 
