@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     var currentIndex = 0;
 
+
     $("#search-input").on("keypress", function (event) {
         if (event.which == 13) {
             console.log("Inside submit listener")
@@ -19,61 +20,52 @@ $(document).ready(function () {
             if (currentIndex === 4) {
                 currentIndex = 4;
                 loadResults(currentIndex);
-                $(this).addClass("disabled");
-                $(this).removeClass("waves-effect");
             } else {
                 currentIndex = currentIndex + 1;
-                console.log(currentIndex);
+                console.log("Current index is now " + currentIndex);
                 loadResults(currentIndex);
+                $(".navigate").removeClass("active orange");
+                console.log('WERE HEEREEEEEE')
 
-                if ($(this).hasClass("disabled")) {
+                for (var i = 0; i < 5; i++) {
+                    if (currentIndex == i) {
+                        $("#page" + (currentIndex + 1)).addClass("active orange");
+                    }
 
-                    $(this).removeClass("disabled");
-                    $(this).addClass("waves-effect");
                 }
-            } if (((currentIndex) + 1) === $(".navigate").attr("data-page")) {
-
-                $(".navigate").addClass("active orange");
-
             }
+
 
         } else if ($(this).attr("data-page") === "prev") {
             console.log($(this).attr("data-page"))
             console.log(currentIndex);
             if (currentIndex === 0) {
                 currentIndex = 0
-                console.log(currentIndex)
+                console.log("Current index is " + currentIndex)
                 loadResults(currentIndex)
-                $(this).addClass("disabled");
-                $(this).removeClass("waves-effect");
             } else {
                 currentIndex = currentIndex - 1;
-                console.log(currentIndex)
+                console.log("Current index is " + currentIndex)
                 loadResults(currentIndex)
-                if ($(this).hasClass("disabled")) {
-
-                    $(this).removeClass("disabled");
-                    $(this).addClass("waves-effect");
-                }
                 if ($('.navigate').hasClass('active orange')) {
                     $('.navigate').removeClass('active orange');
                 }
 
-                if (((currentIndex) + 1) === $(".navigate").attr("data-page")) {
-
-                    $(".navigate").addClass("active orange");
-
+                for (var i = 0; i < 5; i++) {
+                    if (currentIndex == i) {
+                        $("#page" + (currentIndex + 1)).addClass("active orange");
+                    }
+                    if ($(this).hasClass("disabled")) {
+                        $(this).removeClass("disabled");
+                        $(this).addClass("waves-effect");
+                    }
                 }
-
-
-
             }
 
         } else {
-
-            console.log($(this).attr("data-page"))
+            console.log("Page is " + $(this).attr("data-page"))
             currentIndex = parseInt($(this).attr("data-page") - 1);
-            console.log(currentIndex);
+            console.log("Current index is " + currentIndex);
             loadResults(currentIndex);
 
             if ($('.navigate').hasClass('active orange')) {
@@ -83,7 +75,38 @@ $(document).ready(function () {
                 $(this).addClass('active orange');
             }
         }
+        checkDisabled();
+
+        function checkDisabled() {
+            if ($("#page1").hasClass("active orange")) {
+                console.log("adding disabled to prev")
+                $("#prev").addClass("disabled");
+                $("#next").removeClass("disabled");
+
+            } else if ($("#page5").hasClass("active orange")) {
+                console.log("adding disabled to next")
+                $("#next").addClass("disabled");
+                $("#prev").removeClass("disabled");
+
+            } else {
+                console.log("removing disabled class")
+                $(".navigate").removeClass("disabled");
+
+            }
+
+        }
     })
+
+
+
+})
+
+$(".optional").click(function (event) {
+    console.log("I'm being clicked on yay!")
+
+    event.stopPropagation();
+    event.preventDefault();
+
 })
 
 
@@ -110,11 +133,11 @@ function loadResults(index) {
     {
         page: 4,
         from: 39,
-        to: 50
+        to: 51
     },
     {
         page: 5,
-        from: 51,
+        from: 52,
         to: 64
     }];
 
@@ -173,6 +196,8 @@ function loadResults(index) {
             containerId.append(createCard);
         }
     })
+
+
 }
 
 
