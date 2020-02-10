@@ -10,6 +10,9 @@ $(document).ready(function () {
     $("#search-input").on("keypress", function (event) {
         if (event.which == 13) {
             event.preventDefault();
+            currentIndex = 0;
+            $(".navigate").removeClass("active orange");
+            $("#page1").addClass("active orange");
             loadResults(currentIndex);
         }
     })
