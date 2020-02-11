@@ -125,6 +125,7 @@ $(document).ready(function () {
             },
 
         }).then(function (response) {
+            console.log("City search success")
             var cuisine = $('select').val();
 
 
@@ -144,7 +145,7 @@ $(document).ready(function () {
                     request.setRequestHeader("user-key", "173297606dd309e858d947e8c0e0562c");
                 },
             }).then(function (result) {
-
+                console.log("Restaurant search success")
                 $("#myDiv").empty();
                 console.log(result);
 
