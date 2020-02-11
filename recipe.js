@@ -1,5 +1,6 @@
 //Recipe Search
 $(document).ready(function () {
+    $('select').formSelect();
     // Hides Footer
     $('.footer').hide();
 
