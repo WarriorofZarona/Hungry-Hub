@@ -1,6 +1,7 @@
 //Recipe Search
 $(document).ready(function () {
     $('select').formSelect();
+
     // Hides Footer
     $('.footer').hide();
 
@@ -101,6 +102,13 @@ $(document).ready(function () {
 
         // Takes uer input as the keyword for API Call, REQUIRED
         var keyWord = $("#search-input").val();
+        var diet = $("select").val()
+
+        console.log(diet);
+
+
+
+
 
         // Sets parameters of results per page
         var pages = [{
@@ -129,8 +137,9 @@ $(document).ready(function () {
             to: 64
         }];
 
+
         // API URL
-        var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&from=" + pages[index].from + "&to=" + pages[index].to + "&q=" + keyWord;
+        var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&from=" + pages[index].from + "&to=" + pages[index].to + "&q=" + keyWord + "&diet=" + diet;
         $.ajax({
 
             url: queryURL,
@@ -138,6 +147,8 @@ $(document).ready(function () {
         }).then(function (response) {
             // Clears loading Div
             $("#myDiv").empty();
+
+
             // Creates cards and displays results from API response
             for (var i = 0; i < response.hits.length; i++) {
                 var createCardContainer = $("<div>").addClass("col s12 l2").attr("id", "card" + i);
