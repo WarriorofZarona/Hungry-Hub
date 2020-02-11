@@ -21,49 +21,22 @@
 
     <nav class="orange">
         <div class="nav-wrapper navbar">
-            <a href="index.html" class="brand-logo hungryHubLogo">Hungry Hub</a>
+            <a href="index.html" class="brand-logo hungryHubLogo">Hungry Hub <img class="ryanLogo"
+                            src="ryanLogo.png"></a>
+
             <form action="" class="browser-default right">
-                <input id="search-input" placeholder="Search" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
-                <label for="search-input"><i class="material-icons search-icon">search</i></label>
-                <i class="material-icons search-close-icon">cancel</i>
-                <div class="search-popup">
-                    <div class="search-content">
-                        <label class="search-heading">Advanced Search</label>
-                        <ul class="popup-list">
-
-
-                            <form action="#">
-                                <p>
-                                    <label for="chk-demo1">                            
-                                    <input type="checkbox" id="chk-demo1"/>                             
-                                    <span>Vegan</span>                          
-                                  </label>
-                                </p>
-
-                                <p>
-                                    <label for="chk-demo2">                            
-                                    <input type="checkbox" id="chk-demo2" />
-                                    <span>Vegetarian</span>
-                                    </label>
-                                </p>
-
-                                <p>
-                                    <label for="chk-demo3">                            
-                                    <input type="checkbox" id="chk-demo3" />                           
-                                    <span>Gluten-free</span>                            
-                                  </label>
-                                </p>
-
-                                <p>
-                                    <label for="chk-demo4">                            
-                                    <input type="checkbox" id="chk-demo4" />                           
-                                    <span>Low-Sugar</span>                           
-                                  </label>
-                                </p>
-
-                            </form>
-                        </ul>
-                    </div>
+                <div class="right">
+                    <input id="search-input" placeholder="Search" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
+                    <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                    <i class="material-icons search-close-icon">cancel</i>
+                </div>
+                <div class="input-field right ">
+                    <select>
+                                <option value="" disabled selected>Pick a cuisine</option>
+                                <option value="1">American</option>
+                                <option value="25">Chinese</option>
+                                <option value="55">Italian</option>
+                            </select>
                 </div>
             </form>
         </div>
@@ -71,29 +44,39 @@
 
 
     <div class="row" id="results">
-
-        <!--Cards will be appended here-->
-
-
-        <!--JavaScript at end of body for optimized loading-->
-        <!--<script type="text/javascript " src="js/materialize.min.js "></script>-->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="restaurant.js"></script>
-
-
-
-
-        <div class="footer">
-            <ul class="pagination">
-                <li class="disabled navigate" data-page="prev"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                <li class="active orange navigate" data-page="1"><a href="#!">1</a></li>
-                <li class="waves-effect navigate" data-page="2"><a href="#!">2</a></li>
-                <li class="waves-effect navigate" data-page="3"><a href="#!">3</a></li>
-                <li class="waves-effect navigate" data-page="4"><a href="#!">4</a></li>
-                <li class="waves-effect navigate" data-page="5"><a href="#!">5</a></li>
-                <li class="waves-effect navigate" data-page="next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
+        <h2 class="loadingText">Choose your location!</h2>
+        <div class="loadingPage">
+            <img class="ryan" src="ryanEating.gif">
         </div>
+        <!--Cards will be appended here-->
+    </div>
+
+
+    <!--JavaScript at the end of body for optimized loading-->
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="recipe.js"></script>
+
+
+
+
+
+    <div class="footer">
+        <ul class="pagination">
+            <li class="disabled navigate" data-page="prev"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active orange navigate" data-page="1"><a href="#!">1</a></li>
+            <li class="waves-effect navigate" data-page="2"><a href="#!">2</a></li>
+            <li class="waves-effect navigate" data-page="3"><a href="#!">3</a></li>
+            <li class="waves-effect navigate" data-page="4"><a href="#!">4</a></li>
+            <li class="waves-effect navigate" data-page="5"><a href="#!">5</a></li>
+            <li class="waves-effect navigate" data-page="next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+
+    <div id="myDiv" class="animate-bottom">
+        <h3></h3>
+    </div>
 
 </body>
 

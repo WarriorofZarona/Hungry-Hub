@@ -37,12 +37,13 @@ h1 {
 }
 
 .principal h1 {
-    font-size: 70px;
+    font-size: 150px;
     margin-bottom: 20px;
 }
 
-.principal btn {
-    font-size: 20px;
+.principal .goingOut,
+.stayingHome {
+    font-size: 17px;
 }
 
 @keyframes slide {
@@ -337,5 +338,48 @@ p {
     text-align: center;
 }
 
+.ryanLogo {
+    height: 38px;
+    width: 38px;
+    padding: 0px;
+}
 
-/*card-title change font, add shadow
+.loadingText {
+    text-align: center;
+    font-size: 40px;
+}
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+#myDiv {
+    display: none;
+    text-align: center;
+}
