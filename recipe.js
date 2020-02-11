@@ -95,6 +95,20 @@ $(document).ready(function () {
         // Clears the results
         $("#results").empty();
 
+        $("#myDiv").empty();
+
+        showPage();
+
+        function showPage() {
+            $("#myDiv").html("<h3> Working on it!</h3>").show();
+            var img = $("<img>");
+            img.attr("src", "ryanLoading.gif")
+            $("#myDiv").append(img);
+
+
+        }
+
+
         // Takes uer input as the keyword for API Call, REQUIRED
         var keyWord = $("#search-input").val();
 
