@@ -79,14 +79,6 @@ $(document).ready(function () {
         };
     });
 
-    // $(".optional").click(function (event) {
-    //     console.log("I'm being clicked on yay!")
-
-    //     event.stopPropagation();
-    //     event.preventDefault();
-
-    // })
-
     // Controls AJAX call and response is displayed on cards
     function loadResults(index) {
 
@@ -95,17 +87,14 @@ $(document).ready(function () {
         // Clears the results
         $("#results").empty();
 
-        $("#myDiv").empty();
 
         showPage();
-
+        // Adds loading image animation
         function showPage() {
             $("#myDiv").html("<h3> Working on it!</h3>").show();
             var img = $("<img>");
             img.attr("src", "ryanLoading.gif")
             $("#myDiv").append(img);
-
-
         }
 
 
@@ -146,7 +135,8 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-
+            // Clears loading Div
+            $("#myDiv").empty();
             // Creates cards and displays results from API response
             for (var i = 0; i < response.hits.length; i++) {
                 var createCardContainer = $("<div>").addClass("col s12 l2").attr("id", "card" + i);
