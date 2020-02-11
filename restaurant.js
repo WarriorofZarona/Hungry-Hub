@@ -112,11 +112,11 @@ $(document).ready(function () {
 
         $("#search-input").empty();
         var cityInput = $("#search-input").val();
-        console.log(cityInput);
+
 
 
         var cityURL = "https://developers.zomato.com/api/v2.1/cities?count=12&q=" + cityInput;
-        console.log(cityURL);
+
         $.ajax({
             url: cityURL,
             method: "GET",
@@ -125,19 +125,19 @@ $(document).ready(function () {
             },
 
         }).then(function (response) {
-            console.log("City search success")
+
             var cuisine = $('select').val();
 
 
-            console.log(response);//.location_suggestions[0].id);
+
             var cityId = response.location_suggestions[0].id
             var searchURL = "https://developers.zomato.com/api/v2.1/search?start=" + pages[index].start + "&count=12&entity_id=" + cityId + "&entity_type=city";
 
-            console.log(pages[index].start)
+
             if (cuisine !== null) {
                 searchURL += "&cuisines=" + cuisine;
             }
-            console.log(searchURL);
+
             $.ajax({
                 url: searchURL,
                 method: "GET",
@@ -145,9 +145,9 @@ $(document).ready(function () {
                     request.setRequestHeader("user-key", "173297606dd309e858d947e8c0e0562c");
                 },
             }).then(function (result) {
-                console.log("Restaurant search success")
+
                 $("#myDiv").empty();
-                console.log(result);
+
 
                 for (var i = 0; i < result.restaurants.length; i++) {
 
@@ -166,7 +166,7 @@ $(document).ready(function () {
 
                     createCardImg.append($("<span>").addClass("card-title").text(results.restaurant.name))
 
-                    console.log(createCardImg)
+
 
                     createCard.append(createCardImg);
 
