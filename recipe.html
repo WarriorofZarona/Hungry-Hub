@@ -29,7 +29,21 @@
                     value="" autocomplete="off" aria-label="Search box">
                 <label for="search-input"><i class="material-icons search-icon">search</i></label>
                 <i class="material-icons search-close-icon">cancel</i>
-                <div class="search-popup">
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-trigger btn red' href='#' data-target='dropdown1'>What's your diet?</a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="#!">Vegan</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a href="#!">Vegetarian</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a href="#!">Gluten-free</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a href="#!">Low-carb</a></li>
+
+                </ul>
+                <!-- <div class="search-popup">
                     <div class="search-content">
                         <label class="search-heading">Advanced Search</label>
                         <ul class="popup-list">
@@ -65,7 +79,7 @@
                             </form>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </form>
         </div>
     </nav>
