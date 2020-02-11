@@ -19,7 +19,7 @@ $(document).ready(function () {
 
     // Controls the navigation and active state of page numbers and search results
     $(".navigate").click(function () {
-
+        // Controls what happens when next arrow is clicked
         if ($(this).attr("data-page") === "next") {
             if (currentIndex === 4) {
                 currentIndex = 4;
@@ -30,6 +30,7 @@ $(document).ready(function () {
                 $(".navigate").removeClass("active orange");
                 activeNav();
             }
+            // Controls what happens when prev arrow is clicked
         } else if ($(this).attr("data-page") === "prev") {
             if (currentIndex === 0) {
                 currentIndex = 0
@@ -37,15 +38,14 @@ $(document).ready(function () {
             } else {
                 currentIndex = currentIndex - 1;
                 loadResults(currentIndex)
+                // Controls which page is active
                 if ($('.navigate').hasClass('active orange')) {
                     $('.navigate').removeClass('active orange');
                 }
                 activeNav();
-                if ($(this).hasClass("disabled")) {
-                    $(this).removeClass("disabled");
-                    $(this).addClass("waves-effect");
-                }
             }
+
+            // Controls page navigation and active status when clicking page #'s directly
         } else {
             currentIndex = parseInt($(this).attr("data-page") - 1);
             loadResults(currentIndex);
@@ -58,6 +58,7 @@ $(document).ready(function () {
         }
         checkDisabled();
 
+        // Checks for disabled arrows and adds/removes when it reaches first or last page
         function checkDisabled() {
             if ($("#page1").hasClass("active orange")) {
                 $("#prev").addClass("disabled");
@@ -69,6 +70,8 @@ $(document).ready(function () {
                 $(".navigate").removeClass("disabled");
             }
         }
+
+        // Controls active state on pages when clicked on directly
         function activeNav() {
             for (var i = 0; i < 5; i++) {
                 if (currentIndex == i) {
@@ -86,6 +89,7 @@ $(document).ready(function () {
 
     // })
 
+    // Controls AJAX call and response is displayed on cards
     function loadResults(index) {
 
         //Shows footer
@@ -93,7 +97,8 @@ $(document).ready(function () {
         // Clears the results
         $("#results").empty();
 
-        var keyWord = $("#search-input").val() //location of user input for recipe
+        // Takes uer input as the keyword for API Call, REQUIRED
+        var keyWord = $("#search-input").val()
 
         // Sets parameters of results per page
         var pages = [{
@@ -122,14 +127,13 @@ $(document).ready(function () {
             to: 64
         }];
 
+        // API URL
         var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&from=" + pages[index].from + "&to=" + pages[index].to + "&q=" + keyWord;
         $.ajax({
 
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(queryURL)
-            console.log(response)
 
             // Creates cards and displays results from API response
             for (var i = 0; i < response.hits.length; i++) {
@@ -172,4 +176,3 @@ $(document).ready(function () {
         })
     }
 })
-// Notes: Need to add ID's for Card Title (recipe0), Image (image0), Link insert (link0), and Card Content (result0)
