@@ -22,21 +22,22 @@
     <nav class="orange">
         <div class="nav-wrapper navbar">
             <a href="index.html" class="brand-logo hungryHubLogo">Hungry Hub <img class="ryanLogo"
-                            src="ryanLogo.png"></a>
+                    src="ryanLogo.png"></a>
 
             <form action="" class="browser-default right">
                 <div class="right">
-                    <input id="search-input" placeholder="Search" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
+                    <input id="search-input" placeholder="Search" type="text" class="browser-default search-field"
+                        name="q" value="" autocomplete="off" aria-label="Search box">
                     <label for="search-input"><i class="material-icons search-icon">search</i></label>
                     <i class="material-icons search-close-icon">cancel</i>
                 </div>
                 <div class="input-field right ">
                     <select>
-                                <option value="" disabled selected>Pick a cuisine</option>
-                                <option value="1">American</option>
-                                <option value="25">Chinese</option>
-                                <option value="55">Italian</option>
-                            </select>
+                        <option value="" disabled selected>Pick a cuisine</option>
+                        <option value="1">American</option>
+                        <option value="25">Chinese</option>
+                        <option value="55">Italian</option>
+                    </select>
                 </div>
             </form>
         </div>
@@ -56,7 +57,7 @@
 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="recipe.js"></script>
+    <script src="restaurant.js"></script>
 
 
 
@@ -64,13 +65,16 @@
 
     <div class="footer">
         <ul class="pagination">
-            <li class="disabled navigate" data-page="prev"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active orange navigate" data-page="1"><a href="#!">1</a></li>
-            <li class="waves-effect navigate" data-page="2"><a href="#!">2</a></li>
-            <li class="waves-effect navigate" data-page="3"><a href="#!">3</a></li>
-            <li class="waves-effect navigate" data-page="4"><a href="#!">4</a></li>
-            <li class="waves-effect navigate" data-page="5"><a href="#!">5</a></li>
-            <li class="waves-effect navigate" data-page="next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            <li class="disabled navigate" data-page="prev" id="prev"><a href="#!"><i
+                        class="material-icons">chevron_left</i></a>
+            </li>
+            <li class="active orange navigate" data-page="1" id="page1"><a href="#!">1</a></li>
+            <li class="waves-effect navigate" data-page="2" id="page2"><a href="#!">2</a></li>
+            <li class="waves-effect navigate" data-page="3" id="page3"><a href="#!">3</a></li>
+            <li class="waves-effect navigate" data-page="4" id="page4"><a href="#!">4</a></li>
+            <li class="waves-effect navigate" data-page="5" id="page5"><a href="#!">5</a></li>
+            <li class="waves-effect navigate" data-page="next" id="next"><a href="#!"><i
+                        class="material-icons">chevron_right</i></a></li>
         </ul>
     </div>
 

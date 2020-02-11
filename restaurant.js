@@ -1,5 +1,9 @@
 $(document).ready(function () {
+
     var currentIndex = 0
+    $('select').formSelect();
+    // Hides Footer
+    $('.footer').hide();
 
     $("#search-input").on("keypress", function (event) {
         if (event.which == 13) {
@@ -12,83 +16,79 @@ $(document).ready(function () {
     });
 
 
-
-
+    // Controls the navigation and active state of page numbers and search results
     $(".navigate").click(function () {
+        // Controls what happens when next arrow is clicked
         if ($(this).attr("data-page") === "next") {
-            console.log($(this).attr("data-page"))
             if (currentIndex === 4) {
                 currentIndex = 4;
                 loadResults(currentIndex);
             } else {
                 currentIndex = currentIndex + 1;
-                console.log("Current index is now " + currentIndex);
                 loadResults(currentIndex);
                 $(".navigate").removeClass("active orange");
-                for (var i = 0; i < 5; i++) {
-                    if (currentIndex == i) {
-                        $("#page" + (currentIndex + 1)).addClass("active orange");
-                    }
-                }
-            }
+                activeNav();
+            };
+            // Controls what happens when prev arrow is clicked
         } else if ($(this).attr("data-page") === "prev") {
-            console.log($(this).attr("data-page"))
-            console.log(currentIndex);
             if (currentIndex === 0) {
-                currentIndex = 0
-                console.log("Current index is " + currentIndex)
-                loadResults(currentIndex)
+                currentIndex = 0;
+                loadResults(currentIndex);
             } else {
                 currentIndex = currentIndex - 1;
-                console.log("Current index is " + currentIndex)
-                loadResults(currentIndex)
+                loadResults(currentIndex);
+                // Controls which page is active
                 if ($('.navigate').hasClass('active orange')) {
                     $('.navigate').removeClass('active orange');
-                }
-                for (var i = 0; i < 5; i++) {
-                    if (currentIndex == i) {
-                        $("#page" + (currentIndex + 1)).addClass("active orange");
-                    }
-                    if ($(this).hasClass("disabled")) {
-                        $(this).removeClass("disabled");
-                        $(this).addClass("waves-effect");
-                    }
-                }
-            }
+                };
+                activeNav();
+            };
+            // Controls page navigation and active status when clicking page #'s directly
         } else {
-            console.log("Page is " + $(this).attr("data-page"))
             currentIndex = parseInt($(this).attr("data-page") - 1);
-            console.log("Current index is " + currentIndex);
             loadResults(currentIndex);
             if ($('.navigate').hasClass('active orange')) {
                 $('.navigate').removeClass('active orange');
                 $(this).addClass('active orange');
-            } else {
-                $(this).addClass('active orange');
-            }
-        }
+            };
+        };
         checkDisabled();
+        // Checks for disabled arrows and adds/removes when it reaches first or last page
         function checkDisabled() {
             if ($("#page1").hasClass("active orange")) {
-                console.log("adding disabled to prev")
                 $("#prev").addClass("disabled");
                 $("#next").removeClass("disabled");
             } else if ($("#page5").hasClass("active orange")) {
-                console.log("adding disabled to next")
                 $("#next").addClass("disabled");
                 $("#prev").removeClass("disabled");
             } else {
-                console.log("removing disabled class")
                 $(".navigate").removeClass("disabled");
-            }
-        }
-    })
-
+            };
+        };
+        // Controls active state on pages when clicked on directly
+        function activeNav() {
+            for (var i = 0; i < 5; i++) {
+                if (currentIndex == i) {
+                    $("#page" + (currentIndex + 1)).addClass("active orange");
+                };
+            };
+        };
+    });
 
 
     function loadResults(index) {
 
+        $('.footer').show();
         $("#results").empty();
+        showPage();
+        // Adds loading image animation
+        function showPage() {
+            $("#myDiv").html("<h3> Working on it!</h3>").show();
+            var img = $("<img>");
+            img.attr("src", "ryanLoading.gif")
+            $("#myDiv").append(img);
+        }
+
         var pages = [{
             page: 1,
             start: 0,
@@ -125,14 +125,18 @@ $(document).ready(function () {
             },
 
         }).then(function (response) {
+            var cuisine = $('select').val();
 
 
             console.log(response);//.location_suggestions[0].id);
             var cityId = response.location_suggestions[0].id
             var searchURL = "https://developers.zomato.com/api/v2.1/search?start=" + pages[index].start + "&count=12&entity_id=" + cityId + "&entity_type=city";
-            console.log(searchURL);
-            console.log(pages[index].start)
 
+            console.log(pages[index].start)
+            if (cuisine !== null) {
+                searchURL += "&cuisines=" + cuisine;
+            }
+            console.log(searchURL);
             $.ajax({
                 url: searchURL,
                 method: "GET",
@@ -141,7 +145,9 @@ $(document).ready(function () {
                 },
             }).then(function (result) {
 
+                $("#myDiv").empty();
                 console.log(result);
+
                 for (var i = 0; i < result.restaurants.length; i++) {
 
 
