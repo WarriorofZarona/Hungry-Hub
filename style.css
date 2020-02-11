@@ -383,3 +383,9 @@ p {
     display: none;
     text-align: center;
 }
+
+@media only screen and (max-width: 1026px) {
+    #selectArea {
+        display: none;
+    }
+}
