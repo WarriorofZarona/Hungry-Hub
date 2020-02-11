@@ -14,8 +14,8 @@ $(document).ready(function () {
             $(".navigate").removeClass("active orange");
             $("#page1").addClass("active orange");
             loadResults(currentIndex);
-        }
-    })
+        };
+    });
 
     // Controls the navigation and active state of page numbers and search results
     $(".navigate").click(function () {
@@ -29,21 +29,21 @@ $(document).ready(function () {
                 loadResults(currentIndex);
                 $(".navigate").removeClass("active orange");
                 activeNav();
-            }
+            };
             // Controls what happens when prev arrow is clicked
         } else if ($(this).attr("data-page") === "prev") {
             if (currentIndex === 0) {
-                currentIndex = 0
-                loadResults(currentIndex)
+                currentIndex = 0;
+                loadResults(currentIndex);
             } else {
                 currentIndex = currentIndex - 1;
-                loadResults(currentIndex)
+                loadResults(currentIndex);
                 // Controls which page is active
                 if ($('.navigate').hasClass('active orange')) {
                     $('.navigate').removeClass('active orange');
-                }
+                };
                 activeNav();
-            }
+            };
 
             // Controls page navigation and active status when clicking page #'s directly
         } else {
@@ -52,10 +52,8 @@ $(document).ready(function () {
             if ($('.navigate').hasClass('active orange')) {
                 $('.navigate').removeClass('active orange');
                 $(this).addClass('active orange');
-            } else {
-                $(this).addClass('active orange');
-            }
-        }
+            };
+        };
         checkDisabled();
 
         // Checks for disabled arrows and adds/removes when it reaches first or last page
@@ -68,18 +66,18 @@ $(document).ready(function () {
                 $("#prev").removeClass("disabled");
             } else {
                 $(".navigate").removeClass("disabled");
-            }
-        }
+            };
+        };
 
         // Controls active state on pages when clicked on directly
         function activeNav() {
             for (var i = 0; i < 5; i++) {
                 if (currentIndex == i) {
                     $("#page" + (currentIndex + 1)).addClass("active orange");
-                }
-            }
-        }
-    })
+                };
+            };
+        };
+    });
 
     // $(".optional").click(function (event) {
     //     console.log("I'm being clicked on yay!")
@@ -98,7 +96,7 @@ $(document).ready(function () {
         $("#results").empty();
 
         // Takes uer input as the keyword for API Call, REQUIRED
-        var keyWord = $("#search-input").val()
+        var keyWord = $("#search-input").val();
 
         // Sets parameters of results per page
         var pages = [{
@@ -146,23 +144,23 @@ $(document).ready(function () {
                 var createCardAction = $("<div>").addClass("card-action");
                 // Use response.hits[0], using for loop to go through each result
 
-                var result = response.hits[i]
+                var result = response.hits[i];
 
                 // This should display recipe image, to be used in img src
-                createCardImg.append($("<img>").addClass("responsive-img").attr("src", result.recipe.image))
+                createCardImg.append($("<img>").addClass("responsive-img").attr("src", result.recipe.image));
                 // This should display recipe name
-                createCardImg.append($("<span>").addClass("card-title").text(result.recipe.label))
+                createCardImg.append($("<span>").addClass("card-title").text(result.recipe.label));
 
                 createCard.append(createCardImg);
 
                 // Shows number of servings
-                createCardContent.append($("<p>").addClass("valign-wrapper").attr("id", "serving" + i).text(result.recipe.yield + " servings"))
+                createCardContent.append($("<p>").addClass("valign-wrapper").attr("id", "serving" + i).text(result.recipe.yield + " servings"));
                 // Displays total calorie count
-                createCardContent.append($("<p>").addClass("valign-wrapper").attr("id", "totalCalories" + i).text((Math.round(result.recipe.calories) + " total calories")))
+                createCardContent.append($("<p>").addClass("valign-wrapper").attr("id", "totalCalories" + i).text((Math.round(result.recipe.calories) + " total calories")));
                 // Calories per serving
-                createCardContent.append($("<p>").addClass("valign-wrapper").attr("id", "caloriesPerMeal" + i).text("(" + (Math.round(result.recipe.calories / result.recipe.yield)) + " cal per serving)"))
+                createCardContent.append($("<p>").addClass("valign-wrapper").attr("id", "caloriesPerMeal" + i).text("(" + (Math.round(result.recipe.calories / result.recipe.yield)) + " cal per serving)"));
                 // Number of ingredients to use in recipe
-                createCardContent.append($("<p>").addClass("valign-wrapper ingredients").attr("id", "ingredients" + i).text(result.recipe.ingredients.length + " ingredients"))
+                createCardContent.append($("<p>").addClass("valign-wrapper ingredients").attr("id", "ingredients" + i).text(result.recipe.ingredients.length + " ingredients"));
 
                 createCard.append(createCardContent);
 
@@ -172,7 +170,7 @@ $(document).ready(function () {
                 createCard.append(createCardAction);
 
                 containerId.append(createCard);
-            }
-        })
-    }
-})
+            };
+        });
+    };
+});
