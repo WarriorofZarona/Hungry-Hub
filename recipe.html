@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body onload="myFunction()" style="margin:0;">
 
     <nav class="orange">
         <div class="nav-wrapper navbar">
@@ -25,8 +25,7 @@
                     src="ryanLogo.png"></a>
 
             <form action="" class="browser-default right">
-                <input id="search-input" placeholder="Search" type="text" class="browser-default search-field" name="q"
-                    value="" autocomplete="off" aria-label="Search box">
+                <input id="search-input" placeholder="Search" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
                 <label for="search-input"><i class="material-icons search-icon">search</i></label>
                 <i class="material-icons search-close-icon">cancel</i>
                 <div class="search-popup">
@@ -103,14 +102,8 @@
     </div>
 
 
-
-
-    <div onload="myFunction()" style="margin:0;" id="loader"></div>
-
-    <div style="display:none;" id="myDiv" class="animate-bottom">
-        <h2>Working on it!</h2>
-        <img src="ryanLoading.gif">
-
+    <div id="myDiv" class="animate-bottom">
+        <h3></h3>
     </div>
 
     <script>
@@ -118,11 +111,15 @@
 
         function myFunction() {
             myVar = setTimeout(showPage, 3000);
+
         }
 
         function showPage() {
-            document.getElementById("loader").style.display = "none";
             document.getElementById("myDiv").style.display = "block";
+            var img = $("<img>");
+            img.attr("src", "ryanLoading.gif")
+            $("#myDiv").append(img);
+            $("h3").append("Working on it!");
         }
     </script>
 
