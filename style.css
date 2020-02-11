@@ -37,12 +37,13 @@ h1 {
 }
 
 .principal h1 {
-    font-size: 70px;
+    font-size: 150px;
     margin-bottom: 20px;
 }
 
-.principal btn {
-    font-size: 20px;
+.principal .goingOut,
+.stayingHome {
+    font-size: 17px;
 }
 
 @keyframes slide {
