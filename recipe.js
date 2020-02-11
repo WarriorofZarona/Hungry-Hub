@@ -99,13 +99,8 @@ $(document).ready(function () {
             $("#myDiv").append(img);
         }
 
-
         // Takes uer input as the keyword for API Call, REQUIRED
         var keyWord = $("#search-input").val();
-
-
-
-
 
         // Sets parameters of results per page
         var pages = [{
@@ -134,21 +129,12 @@ $(document).ready(function () {
             to: 64
         }];
 
-
         // API URL
         var queryURL = "https://api.edamam.com/search?app_id=2d10e9e9&app_key=041becfbb0cfe254d9b264eb2339c614&from=" + pages[index].from + "&to=" + pages[index].to + "&q=" + keyWord
         var diet = $("select").val()
-
-        console.log(diet);
-
         if (diet !== null) {
-
             queryURL += "&diet=" + diet;
-
         }
-
-        console.log(diet)
-
 
         $.ajax({
 
